@@ -18,7 +18,7 @@ const EnquiriesUser = ({ items }) => {
 
             const owner = f.seller;
           return (
-            <div key={f.id} className="border p-3 rounded">
+            <div key={f.id} className="border p-3 rounded dark:bg-gray-900 bg-gray-100">
               <div className="flex items-center gap-2">
                 <h3 className="font-bold text-lg">{f.flat.title}</h3>
                 <span className={statusTag(status)}>{status}</span>
@@ -29,7 +29,7 @@ const EnquiriesUser = ({ items }) => {
              
              {/* Owner */}
              
-                <div className="text-sm text-gray-700 mt-1 space-y-1">
+                <div className="text-sm text-amber-400 mt-1 space-y-1">
                   <p>
                     <span className="font-medium">Owner :</span>{" "}
                     {owner.name} ({owner.email})

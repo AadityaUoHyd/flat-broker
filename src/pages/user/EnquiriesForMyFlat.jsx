@@ -58,8 +58,8 @@ const EnquiriesForMyFlat = () => {
 
     return (
         <>
-            <div className="max-w-4xl mx-auto mt-8 p-4 bg-white rounded-3xl shadow-md">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">Enquiries for My Flats</h2>
+            <div className="max-w-4xl mx-auto mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-3xl shadow-md">
+                <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Enquiries for My Flats</h2>
                 <EnquiriesReceived items={response} onSold={onSold} flatId={flatId} />
             </div>
         </>

@@ -25,15 +25,15 @@ const MarketFlatList = ({ flats, onEnquiry }) => {
           return (
             <div key={f.id} className="border p-3 rounded">
               <div className="flex items-center gap-2">
-                <h3 className="font-bold text-lg">{f.title}</h3>
-                <StatusTag status={f.status} />
+                <h3 className="font-bold text-lg ">{f.title}</h3>
+                <StatusTag status={f.status}/>
               </div>
 
               {<p>{f.address}</p>}
               {<p>Price : ₹ {Number(f.price)}</p>}
               {<p className="text-sm mt-1">{f.description}</p>}
 
-              <button className="mt-2 px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer" onClick={()=> onEnquiry(f)}>
+              <button className="mt-2 px-3 py-1 border rounded hover:bg-blue-700 cursor-pointer" onClick={()=> onEnquiry(f)}>
                 Send Enquiry
               </button>
               {/* images */}

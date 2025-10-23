@@ -1,11 +1,15 @@
 import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { useAuth } from "../../hooks/useAuth"; // Assume auth hook
 
-const linkBase = "block px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-200";
+const linkBase = "block px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200";
 const linkActive = "bg-blue-600 text-white hover:bg-blue-700";
 
 const UserDashboard = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -14,72 +18,77 @@ const UserDashboard = () => {
   };
 
   return (
-      <div className="flex min-h-screen bg-gray-50">
-        {/* Sidebar */}
-        <aside className="w-56 bg-gray-200 min-h-screen p-6 space-y-6 shadow-lg">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-extrabold text-lg text-gray-800">User Panel</h2>
-            <button
-                onClick={logout}
-                className="text-xs px-3 py-1 border border-red-500 rounded-md text-red-600 hover:bg-red-500 hover:text-white transition-colors"
-            >
-              Logout
-            </button>
-          </div>
+      <div className="flex flex-col min-h-screen bg-gray-900 text-gray-300">
+        <Header role="User" user={user} />
+        <div className="flex flex-1">
+          {/* Sidebar */}
+          <aside className="w-56 bg-gray-900 text-gray-300 min-h-screen p-6 space-y-6 shadow-lg">
+            <nav>
+              <ul className="space-y-3">
+                <li>
+                  <NavLink
+                      to="/user-dash"
+                      end
+                      className={({ isActive }) =>
+                          `${linkBase} ${isActive ? linkActive : "text-gray-700 dark:text-gray-300"}`
+                      }
+                  >
+                    Approved Flats
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                      to="/user-dash/myflats"
+                      end
+                      className={({ isActive }) =>
+                          `${linkBase} ${isActive ? linkActive : "text-gray-700 dark:text-gray-300"}`
+                      }
+                  >
+                    My Flats
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                      to="/user-dash/enquiries"
+                      end
+                      className={({ isActive }) =>
+                          `${linkBase} ${isActive ? linkActive : "text-gray-700 dark:text-gray-300"}`
+                      }
+                  >
+                    My Enquiries
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                      to="/user-dash/enquiries/received"
+                      end
+                      className={({ isActive }) =>
+                          `${linkBase} ${isActive ? linkActive : "text-gray-700 dark:text-gray-300"}`
+                      }
+                  >
+                    Enquiries Received
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                      to="/user-dash/profile"
+                      end
+                      className={({ isActive }) =>
+                          `${linkBase} ${isActive ? linkActive : "text-gray-700 dark:text-gray-300"}`
+                      }
+                  >
+                    Profile
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          </aside>
 
-          <nav>
-            <ul className="space-y-3">
-              <li>
-                <NavLink
-                    to="/user-dash"
-                    end
-                    className={({ isActive }) =>
-                        `${linkBase} ${isActive ? linkActive : "text-gray-700"}`
-                    }
-                >
-                  Approved Flats
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                    to="/user-dash/myflats"
-                    end
-                    className={({ isActive }) =>
-                        `${linkBase} ${isActive ? linkActive : "text-gray-700"}`
-                    }
-                >
-                  My Flats
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                    to="/user-dash/enquiries"
-                    end
-                    className={({ isActive }) =>
-                        `${linkBase} ${isActive ? linkActive : "text-gray-700"}`
-                    }
-                >
-                  My Enquiries
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                    to="/user-dash/enquiries/received"
-                    end
-                    className={({ isActive }) =>
-                        `${linkBase} ${isActive ? linkActive : "text-gray-700"}`
-                    }
-                >
-                  Enquiries Received
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
-        </aside>
-
-        <main className="flex-1 p-8 bg-white shadow-inner rounded-tr-3xl rounded-br-3xl">
-          <Outlet />
-        </main>
+          <main className="flex-1 p-8 bg-white dark:bg-gray-900 shadow-inner rounded-tr-3xl rounded-br-3xl">
+            <Outlet />
+          </main>
+        </div>
+        <Footer />
       </div>
   );
 };

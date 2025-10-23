@@ -15,6 +15,11 @@ import ApprovedFlats from './pages/admin/ApprovedFlats'
 import SoldFlats from './pages/admin/SoldFlats'
 import AllEnquiries from './pages/admin/AllEnquiries'
 import AddFlatPage from './pages/user/AddFlatPage'
+import ProfilePage from "./pages/user/ProfilePage.jsx";
+import About from "./pages/static-pages/About.jsx";
+import Contact from "./pages/static-pages/Contact.jsx";
+import Partners from "./pages/static-pages/Partners.jsx";
+import Team from "./pages/static-pages/Team.jsx";
 
 
 function App() {
@@ -25,13 +30,18 @@ function App() {
         <Routes>
             <Route path='/' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
+
             <Route path='/user-dash' element={<UserDashboard/>}>
               <Route index element={<FlatApprovedPage/>}/>
               <Route path='myflats' element={<MyFlatPage/>}/>
               <Route path='myflats/add' element={<AddFlatPage/>}/>
               <Route path='enquiries' element={<EnquiriesPage/>}/>
               <Route path='enquiries/received' element={<EnquiriesForMyFlat/>}/>
-              
+              <Route path='profile' element={<ProfilePage/>}/>
+                <Route path='about' element={<About/>}/>
+                <Route path='contact' element={<Contact/>}/>
+                <Route path='partners' element={<Partners/>}/>
+                <Route path='team' element={<Team/>}/>
             </Route>
             <Route path='/admin-dash' element={<AdminDashboard/>}>
               <Route index element={<AdminDashPage/>}/>
