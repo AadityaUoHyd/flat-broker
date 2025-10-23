@@ -29,7 +29,7 @@ const MyFlatList = ({ flats }) => {
               className="border border-gray-300 p-5 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="font-semibold text-xl text-gray-800 dark:text-gray-100">{f.title}</h3>
+                <h3 className="font-semibold text-xl text-amber-400">{f.title}</h3>
                 <StatusTag status={f.status} />
               </div>
 

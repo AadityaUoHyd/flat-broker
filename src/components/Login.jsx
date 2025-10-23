@@ -46,7 +46,7 @@ const Login = () => {
     }
 
     return (
-        <div className="login bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center p-4">
+        <div className="login bg-gradient-to-br from-blue-300 to-blue-900 min-h-screen flex items-center justify-center p-4">
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ const Login = () => {
                 <div className="flex flex-col items-center mb-6">
                     <img src="/logo.png" alt="Flat Broker Logo" className="w-16 h-16 mb-2" />
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center">
-                        Login
+                        Login to Flat Broker
                     </h1>
                     <p className="text-gray-500 text-sm text-center">
                         Welcome back! Log in to find your perfect home
